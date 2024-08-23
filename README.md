@@ -4,9 +4,13 @@ Prototype for a physics engine, made with vpython.
 Currently somewhat capable of collisions and not much else.
 
 Todo:
+
 Improve collision calculations.
+
 Add coefficient of restitution on collisions.
+
 Add friction on collisions and springs.
+
 Add possibilty for springs between particles.
 
 
