@@ -5,12 +5,14 @@ Currently somewhat capable of collisions and not much else.
 
 Todo:
 
-Improve collision calculations.
+- Test different numerical solvers.
 
-Add coefficient of restitution on collisions.
+- Improve collision calculations.
 
-Add friction on collisions and springs.
+- Add coefficient of restitution on collisions.
 
-Add possibilty for springs between particles.
+- Add friction on collisions and springs.
+
+- Add possibilty for springs between particles.
 
 
