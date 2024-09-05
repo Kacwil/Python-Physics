@@ -14,6 +14,12 @@ class StaticParticle:
     def drawSphere(self):
         self.sphere = sphere(pos=self.position, radius=self.radius, color=vec(1,0,0), opacity=0.3)
 
+class StaticCuboid(StaticParticle):
+    def __init__(self, position=vec(2, 2, 2), radius=0.5, visible=False, COR=0.5):
+        super().__init__(position, radius, visible, COR)
+
+
+
 
 class DynamicParticle(StaticParticle):
     def __init__(self, position=vec(2,2,2), velocity=vec(0,0,0), acceleration=vec(0,0,0), mass=1 ,radius=0.5, visible=True, COR=0.5, label=False, id=None):
@@ -45,9 +51,9 @@ class DynamicParticle(StaticParticle):
 
     def physics_update(self, dt):
 
-        self.acceleration += util.physics_gravity()
-        self.acceleration += util.physics_air_drag(self.velocity, self.mass)
-        print(self.acceleration)
+        #Gravity and Drag
+        #self.acceleration += util.physics_gravity()
+        #self.acceleration += util.physics_air_drag(self.velocity, self.mass)
 
         self.last_position = self.position
         self.velocity = self.velocity + dt * self.acceleration
@@ -74,11 +80,13 @@ class DynamicParticle(StaticParticle):
 
         if other.is_static:
             overlap_distance = (self.radius + other.radius) - distance
-            self.acceleration += line_normalized * 1000 * overlap_distance / self.mass # F = kx^2
+            self.acceleration += line_normalized * 10000 * overlap_distance / self.mass # F = kx^2
+            self.velocity = self.velocity * .999
 
         if other.is_static == False:
             overlap_distance = (self.radius + other.radius) - distance
-            self.acceleration += line_normalized * 1000 * overlap_distance / self.mass
+            self.acceleration += line_normalized * 10000 * overlap_distance / self.mass
+            self.velocity = self.velocity * .999
 
 
     

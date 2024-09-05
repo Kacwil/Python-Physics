@@ -51,7 +51,7 @@ class Grid:
             y = round(particle.last_position.y)
             z = round(particle.last_position.z)
 
-            if x < 0 or y < 0 or z < 0 or x >= self.grid_size.x or y >= self.grid_size.y or z >= self.grid_size.z:
+            if x < 0 or y < 0 or z < 0 or x >= self.grid_size.x-1 or y >= self.grid_size.y-1 or z >= self.grid_size.z-1:
                 particle.position = vec(2,2,2)
                 particle.velocity = vec(0,0,0)
                 print("Particle out of bounds")

@@ -29,8 +29,9 @@ def physics_gravity():
     return vec(0,-9.81,0)
 
 def physics_air_drag(velocity, mass):
+    air_drag_constant = .5
     force = vec(0,0,0)
-    force.x += copysign((velocity.x * velocity.x) * .1, -velocity.x )
-    force.y += copysign((velocity.y * velocity.y) * .1, -velocity.y )
-    force.z += copysign((velocity.z * velocity.z) * .1, -velocity.z )
+    force.x += copysign((velocity.x * velocity.x) * air_drag_constant, -velocity.x )
+    force.y += copysign((velocity.y * velocity.y) * air_drag_constant, -velocity.y )
+    force.z += copysign((velocity.z * velocity.z) * air_drag_constant, -velocity.z )
     return force / mass
